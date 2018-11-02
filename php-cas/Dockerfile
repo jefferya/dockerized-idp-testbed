@@ -3,10 +3,8 @@ FROM centos:centos7
 MAINTAINER Unicon, Inc.
 
 RUN yum -y update \
-    && yum -y install httpd mod_ssl php php-pear php-xml php-pdo wget \
+    && yum -y install httpd mod_ssl php php-pear php-xml php-pdo wget php-pear-CAS \
     && yum -y clean all
-
-RUN pear install https://developer.jasig.org/cas-clients/php/current.tgz
 
 COPY httpd-foreground /usr/local/bin/
 COPY etc-httpd/ /etc/httpd/
